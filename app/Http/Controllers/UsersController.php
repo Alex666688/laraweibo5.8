@@ -38,7 +38,16 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|confirmed|min:6'
         ]);
-        return;
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        // route() 方法会自动获取 Model 的主键，也就是数据表 users 的主键 id
+        return redirect()->route('users.show', [$user]);
+
     }
 
 
