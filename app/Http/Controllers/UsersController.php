@@ -31,6 +31,13 @@ class UsersController extends Controller
     }
 
 
+    /**
+     * 创建用户保存数据页面
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -52,12 +59,6 @@ class UsersController extends Controller
 
     }
 
-
-
-    public function test ()
-    {
-        dump(session()->get('success'));die;
-    }
 
 
 
