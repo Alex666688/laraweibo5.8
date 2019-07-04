@@ -40,3 +40,6 @@ Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 
 // 删除用户
 Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
+
+
+Route::get('/test', 'UsersController@test')->name('test');

@@ -45,9 +45,18 @@ class UsersController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
+
         // route() 方法会自动获取 Model 的主键，也就是数据表 users 的主键 id
         return redirect()->route('users.show', [$user]);
 
+    }
+
+
+
+    public function test ()
+    {
+        dump(session()->get('success'));die;
     }
 
 
